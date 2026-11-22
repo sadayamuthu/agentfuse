@@ -87,6 +87,10 @@ TRIPPED  release-bot   burst: 14 x ec2.TerminateInstances in 38s
 4. Dependency-aware containment
 5. Pattern-based trips
 
+## Built on switchyard
+
+`fuse` will be a Go binary built on [switchyard](https://github.com/sadayamuthu/switchyard), OpenAstra's shared MCP proxy core: counters and breakers are a switchyard hook with per-session state; a tripped breaker blocks calls before revoking credentials. It stacks with the other switchyard tools by chaining (`agent → fuse → intentlock → taintline → rewind → MCP server`).
+
 ## Related OpenAstra projects
 
 - AgentID (in the lab): the identities Fuse revokes

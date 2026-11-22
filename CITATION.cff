@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using these metadata."
+type: software
+title: "Fuse: Circuit breakers and a kill switch for AI agent fleets"
+abstract: >-
+  Fuse sets per-agent and per-fleet limits on actions, spend, resources
+  touched and error rates, and when an agent trips one, revokes its
+  credentials in one step and pauses the agents that depend on it.
+authors:
+  - family-names: Sadayamuthu
+    given-names: Karthikeyan
+    orcid: "https://orcid.org/0009-0008-3539-6048"
+license: Apache-2.0
+repository-code: "https://github.com/sadayamuthu/fuse"
+url: "https://openastra.org"
+keywords:
+  - AI agents
+  - circuit breaker
+  - kill switch
+  - incident response
+  - MCP

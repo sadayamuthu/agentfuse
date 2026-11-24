@@ -1,6 +1,6 @@
 <div align="center">
 
-# Fuse
+# AgentFuse
 
 <h3>Circuit breakers and a kill switch for AI agent fleets</h3>
 
@@ -16,11 +16,11 @@
 
 ---
 
-## What is Fuse?
+## What is AgentFuse?
 
-Circuit breakers and a kill switch for fleets of AI agents. `fuse` sets limits
+Circuit breakers and a kill switch for fleets of AI agents. `agentfuse` sets limits
 per agent and per fleet (actions per minute, spend, number of distinct
-resources touched, error rate). When an agent trips one, `fuse` revokes its
+resources touched, error rate). When an agent trips one, `agentfuse` revokes its
 credentials in one step and pauses the agents that depend on it, so one
 misbehaving agent doesn't set off failures across the rest.
 
@@ -44,7 +44,7 @@ everywhere" button, and no automatic one.
 
 ## How it works
 
-1. **Observe.** `fuse` sits on the agent's tool path (an MCP proxy or a
+1. **Observe.** `agentfuse` sits on the agent's tool path (an MCP proxy or a
    sidecar) and counts actions, spend, distinct resources and errors per
    agent, per task and per fleet.
 2. **Trip.** When a limit is crossed, or the pattern changes sharply (a burst
@@ -56,14 +56,14 @@ everywhere" button, and no automatic one.
 4. **Contain.** Agents downstream of the tripped one in the dependency graph
    are paused until a human reviews.
 5. **Reset.** A human closes the breaker, optionally after a
-   [Rewind](https://github.com/sadayamuthu/rewind) rollback.
+   [AgentRewind](https://github.com/sadayamuthu/agentrewind) rollback.
 
 ---
 
 ## Example (proposed)
 
 ```yaml
-# fuse.yaml
+# agentfuse.yaml
 agents:
   release-bot:
     max_actions_per_minute: 30
@@ -79,7 +79,7 @@ fleet:
 ```console
 TRIPPED  release-bot   burst: 14 x ec2.TerminateInstances in 38s
          credentials revoked (AgentID: agt_7Hq...)   paused downstream: deploy-verifier, notifier
-         run `fuse status release-bot` to review, `fuse reset release-bot` to resume
+         run `agentfuse status release-bot` to review, `agentfuse reset release-bot` to resume
 ```
 
 ---
@@ -88,7 +88,7 @@ TRIPPED  release-bot   burst: 14 x ec2.TerminateInstances in 38s
 
 - MCP proxy and sidecar enforcement
 - Credential revocation for AgentID, AWS IAM, GCP and GitHub tokens
-- `fuse kill <agent|fleet>`: a manual kill switch that works the same way
+- `agentfuse kill <agent|fleet>`: a manual kill switch that works the same way
 - Events to webhooks, PagerDuty and OpenTelemetry
 
 ---
@@ -119,14 +119,14 @@ The plan, from the first working version to 1.0, is in [ROADMAP.md](ROADMAP.md).
 
 ## Built on switchyard
 
-`fuse` will be a Go binary built on [switchyard](https://github.com/sadayamuthu/switchyard), OpenAstra's shared MCP proxy core: counters and breakers are a switchyard hook with per-session state; a tripped breaker blocks calls before revoking credentials. It stacks with the other switchyard tools by chaining (`agent → fuse → intentlock → taintline → rewind → MCP server`).
+`agentfuse` will be a Go binary built on [switchyard](https://github.com/sadayamuthu/switchyard), OpenAstra's shared MCP proxy core: counters and breakers are a switchyard hook with per-session state; a tripped breaker blocks calls before revoking credentials. It stacks with the other switchyard tools by chaining (`agent → agentfuse → agentlock → agenttaint → agentrewind → MCP server`).
 
 ---
 
 ## Related OpenAstra projects
 
-- AgentID (in the lab): the identities Fuse revokes
-- [Rewind](https://github.com/sadayamuthu/rewind): rollback after a trip
+- AgentID (in the lab): the identities AgentFuse revokes
+- [AgentRewind](https://github.com/sadayamuthu/agentrewind): rollback after a trip
 - [AgentChaos](https://github.com/sadayamuthu/agentchaos): tests that the breakers actually trip
 
 ---
@@ -139,7 +139,7 @@ Design feedback, real-world cases and fixes are welcome. See [CONTRIBUTING.md](C
 
 ## Security
 
-Please report vulnerabilities privately through [GitHub security advisories](https://github.com/sadayamuthu/fuse/security/advisories/new), not in a public issue. See [SECURITY.md](SECURITY.md) for what to include and what's in scope.
+Please report vulnerabilities privately through [GitHub security advisories](https://github.com/sadayamuthu/agentfuse/security/advisories/new), not in a public issue. See [SECURITY.md](SECURITY.md) for what to include and what's in scope.
 
 ---
 
@@ -151,10 +151,10 @@ Please report vulnerabilities privately through [GitHub security advisories](htt
 
 <div align="center">
 
-**Fuse: circuit breakers and a kill switch for AI agent fleets**
+**AgentFuse: circuit breakers and a kill switch for AI agent fleets**
 
-Fuse is managed by [OpenAstra](https://openastra.org)
+AgentFuse is managed by [OpenAstra](https://openastra.org)
 
-[GitHub](https://github.com/sadayamuthu/fuse) · [Thesis](THESIS.md) · [Roadmap](ROADMAP.md)
+[GitHub](https://github.com/sadayamuthu/agentfuse) · [Thesis](THESIS.md) · [Roadmap](ROADMAP.md)
 
 </div>

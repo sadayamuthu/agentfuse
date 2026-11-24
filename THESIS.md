@@ -1,4 +1,4 @@
-# Fuse: thesis
+# AgentFuse: thesis
 
 **In one line:** agents fail fast and at scale, so they need automatic
 circuit breakers and a kill switch that revokes credentials, not just a
@@ -31,10 +31,10 @@ revocation feasible.
 
 ## What success looks like
 
-- In AgentChaos runaway scenarios, Fuse trips before meaningful damage, and
+- In AgentChaos runaway scenarios, AgentFuse trips before meaningful damage, and
   revocation stops the agent even when it bypasses the proxy.
 - Default limits produce few false trips on normal workloads.
-- `fuse kill` stops an agent or fleet in one step across AWS, GitHub and
+- `agentfuse kill` stops an agent or fleet in one step across AWS, GitHub and
   AgentID.
 
 ## What would prove us wrong
@@ -47,10 +47,10 @@ revocation feasible.
 
 ## Not a bet on
 
-Diagnosing why an agent misbehaved, or undoing what it did (that's Rewind).
+Diagnosing why an agent misbehaved, or undoing what it did (that's AgentRewind).
 
 ## Where it fits
 
 Area X, AI Resilience & Recovery. Revokes AgentID identities; tested by
 [AgentChaos](https://github.com/sadayamuthu/agentchaos); hands off to
-[Rewind](https://github.com/sadayamuthu/rewind). Runs on the shared proxy core.
+[AgentRewind](https://github.com/sadayamuthu/agentrewind). Runs on the shared proxy core.

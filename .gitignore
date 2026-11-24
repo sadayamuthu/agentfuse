@@ -1,5 +1,5 @@
 # Binaries and build output
-/fuse
+/agentfuse
 /dist/
 /bin/
 *.exe

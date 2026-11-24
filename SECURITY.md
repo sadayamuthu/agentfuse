@@ -4,14 +4,14 @@
 
 Please don't report security problems in a public issue, pull request or
 discussion. Use
-[**Report a vulnerability**](https://github.com/sadayamuthu/fuse/security/advisories/new)
+[**Report a vulnerability**](https://github.com/sadayamuthu/agentfuse/security/advisories/new)
 on the repository's Security tab instead. Only the maintainers can see the
 report.
 
 Include what you can of:
 
-- the Fuse version (`fuse version`) or commit, your Go version and OS
-- how Fuse was used, and its configuration with secrets removed
+- the AgentFuse version (`agentfuse version`) or commit, your Go version and OS
+- how AgentFuse was used, and its configuration with secrets removed
 - steps to reproduce
 - what happened and what you expected
 
@@ -21,19 +21,19 @@ rather it didn't.
 
 ## Supported versions
 
-Fuse is at the design stage and has no releases yet. Once it does,
+AgentFuse is at the design stage and has no releases yet. Once it does,
 fixes land in the latest release only, until 1.0.
 
 ## What counts
 
-Fuse sits on an agent's MCP tool path, counts calls, and, when a breaker trips, revokes credentials through the identity providers you configure.
+AgentFuse sits on an agent's MCP tool path, counts calls, and, when a breaker trips, revokes credentials through the identity providers you configure.
 
-Fuse is a security tool, so anything that breaks one of these promises
+AgentFuse is a security tool, so anything that breaks one of these promises
 is a security issue:
 
 - **A tripped breaker blocks.** A call that gets through an open breaker is in scope.
 - **Only humans close breakers.** A way for an agent to reset or bypass its own breaker is in scope.
-- **Revocation credentials are protected.** Fuse's own credentials for revoking others are never logged or exposed to agents. A path that leaks them is in scope.
+- **Revocation credentials are protected.** AgentFuse's own credentials for revoking others are never logged or exposed to agents. A path that leaks them is in scope.
 
 These are by design, and not vulnerabilities:
 

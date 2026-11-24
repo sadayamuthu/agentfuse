@@ -15,7 +15,7 @@ None yet.
 
 ## Wanted
 
-Fuse has one maintainer, and wants more, especially from organizations
+AgentFuse has one maintainer, and wants more, especially from organizations
 not already represented. Areas where help would make the biggest difference:
 
 - credential revocation for AWS IAM, GCP and GitHub,

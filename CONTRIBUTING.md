@@ -1,8 +1,8 @@
-# Contributing to Fuse
+# Contributing to AgentFuse
 
-Thanks for helping. Fuse sets per-agent and per-fleet limits on actions, spend, resources touched and error rates, and when an agent trips one, revokes its credentials in one step and pauses the agents that depend on it.
+Thanks for helping. AgentFuse sets per-agent and per-fleet limits on actions, spend, resources touched and error rates, and when an agent trips one, revokes its credentials in one step and pauses the agents that depend on it.
 
-Fuse is at the **design stage**: the README and
+AgentFuse is at the **design stage**: the README and
 [THESIS.md](THESIS.md) describe what it will do, and there is little or no
 code yet. Right now the most useful contributions are on the design itself.
 
@@ -22,8 +22,8 @@ code yet. Right now the most useful contributions are on the design itself.
   work on tells us more than any feature request.
 - **Pick up an area** from the "Wanted" list in
   [MAINTAINERS.md](MAINTAINERS.md), or an issue labelled
-  [`good first issue`](https://github.com/sadayamuthu/fuse/labels/good%20first%20issue)
-  or [`help wanted`](https://github.com/sadayamuthu/fuse/labels/help%20wanted).
+  [`good first issue`](https://github.com/sadayamuthu/agentfuse/labels/good%20first%20issue)
+  or [`help wanted`](https://github.com/sadayamuthu/agentfuse/labels/help%20wanted).
 
 For anything larger than a small fix, open an issue first so we can agree on
 the approach before you write the code.
@@ -42,11 +42,11 @@ still show the problem. Never paste credentials.
 
 ## Development setup
 
-Fuse is written in **Go 1.26** or newer, like every new OpenAstra tool.
+AgentFuse is written in **Go 1.26** or newer, like every new OpenAstra tool.
 
 ```sh
-git clone https://github.com/sadayamuthu/fuse.git
-cd fuse
+git clone https://github.com/sadayamuthu/agentfuse.git
+cd agentfuse
 go build ./...
 ```
 
@@ -75,12 +75,12 @@ before your change and passes after it.
 ## Security
 
 Please don't report security problems in a public issue. Use
-[**Report a vulnerability**](https://github.com/sadayamuthu/fuse/security/advisories/new)
+[**Report a vulnerability**](https://github.com/sadayamuthu/agentfuse/security/advisories/new)
 on the repository's Security tab instead. See [SECURITY.md](SECURITY.md) for
 what to include and what's in scope.
 
 ## License
 
-Fuse is licensed under the [Apache License 2.0](LICENSE). By
+AgentFuse is licensed under the [Apache License 2.0](LICENSE). By
 contributing, you agree that your contributions are licensed under the same
 license.
